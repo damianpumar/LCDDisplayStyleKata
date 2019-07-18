@@ -6,7 +6,7 @@ public class NumberConverterShould {
     @Test
     public void be_format_LCD_one() {
         NumberConverter numberConverter = new NumberConverter();
-        
+
         assertThat(numberConverter.convert(1)).isEqualTo(" \n|\n|");
     }
 }
