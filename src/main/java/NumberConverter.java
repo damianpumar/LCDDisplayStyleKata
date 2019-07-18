@@ -12,7 +12,7 @@ public class NumberConverter {
         this.LCDNumbers = new ArrayList() {
             {
                 add(new LCDNumber(1, " ", "|", "|"));
-                add(new LCDNumber(2, "_", "_|", "|_"));
+                add(new LCDNumber(2, " _", " _|", "|_"));
             }
         };
     }
@@ -23,7 +23,11 @@ public class NumberConverter {
             this.formatter.add(getLCDNumber(number));
         }
 
-        return this.formatter.format();
+        String lcdNumber = this.formatter.format();
+
+        System.out.println(lcdNumber);
+
+        return lcdNumber;
     }
 
     private LCDNumber getLCDNumber(int number) {
