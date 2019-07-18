@@ -24,6 +24,8 @@ public class LCDCharacterFormatter {
             formatted += number.value(position);
         }
 
+        System.out.println(formatted);
+
         return formatted;
     }
 }
