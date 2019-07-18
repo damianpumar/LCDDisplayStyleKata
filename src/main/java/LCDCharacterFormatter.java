@@ -1,16 +1,16 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class LCDNumberFormatter {
-    private final List<LCDNumber> LCDNumbers;
+public class LCDCharacterFormatter {
+    private final List<Character> LCDCharacters;
     private final String NEW_LINE = "\n";
 
-    public LCDNumberFormatter() {
-        this.LCDNumbers = new ArrayList();
+    public LCDCharacterFormatter() {
+        this.LCDCharacters = new ArrayList();
     }
 
-    public void add(LCDNumber lcdNumber) {
-        this.LCDNumbers.add(lcdNumber);
+    public void add(Character lcdNumber) {
+        this.LCDCharacters.add(lcdNumber);
     }
 
     public String format() {
@@ -20,7 +20,7 @@ public class LCDNumberFormatter {
     private String createLine(Position position) {
         String formatted = "";
 
-        for (LCDNumber number : this.LCDNumbers) {
+        for (Character number : this.LCDCharacters) {
             formatted += number.value(position);
         }
 
