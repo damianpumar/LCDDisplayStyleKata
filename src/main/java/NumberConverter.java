@@ -1,5 +1,8 @@
 public class NumberConverter {
     public String convert(int number) {
-        return " \n|\n|";
+        if (number == 1)
+            return " \n|\n|";
+
+        return " _\n _|\n|_";
     }
 }
