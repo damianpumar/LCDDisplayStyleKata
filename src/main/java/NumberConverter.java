@@ -1,27 +1,39 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class NumberConverter {
-    private LCDNumberFormatter formatter;
+    private final LCDNumberFormatter formatter;
     private final List<LCDNumber> LCDNumbers;
 
     public NumberConverter() {
-        formatter = new LCDNumberFormatter();
+        this.formatter = new LCDNumberFormatter();
 
         this.LCDNumbers = new ArrayList() {
             {
-                add(new LCDNumber(" ", "|", "|"));
-                add(new LCDNumber("_", "_|", "|_"));
+                add(new LCDNumber(1, " ", "|", "|"));
+                add(new LCDNumber(2, "_", "_|", "|_"));
             }
         };
     }
 
     public String convert(int arabicNumber) {
 
-        for (String number : String.valueOf(arabicNumber).split("")) {
-            formatter.add(this.LCDNumbers.get(Integer.parseInt(number) - 1));
+        for (int number : parseArabicNumbers(arabicNumber)) {
+            this.formatter.add(getLCDNumber(number));
         }
 
-        return formatter.format();
+        return this.formatter.format();
+    }
+
+    private LCDNumber getLCDNumber(int number) {
+        return this.LCDNumbers.stream().filter(lcd -> lcd.value() == number)
+                .findFirst()
+                .get();
+    }
+
+    private int[] parseArabicNumbers(int arabicNumber) {
+        return Arrays.stream(String.valueOf(arabicNumber).split(""))
+                .mapToInt(Integer::parseInt).toArray();
     }
 }
