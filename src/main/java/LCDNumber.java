@@ -1,16 +1,11 @@
 public class LCDNumber {
-    private final String top;
-    private final String middle;
-    private final String bottom;
+    private final String[] positions;
 
     public LCDNumber(String top, String middle, String bottom) {
-        this.top = top;
-        this.middle = middle;
-        this.bottom = bottom;
+        this.positions = new String[]{top, middle, bottom};
     }
 
-    @Override
-    public String toString() {
-        return top + "\n" + middle + "\n" + bottom;
+    public String getPosition(int position) {
+        return this.positions[position];
     }
 }

@@ -2,9 +2,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NumberConverter {
+    private LCDNumberFormatter formatter;
     private final List<LCDNumber> LCDNumbers;
 
     public NumberConverter() {
+        formatter = new LCDNumberFormatter();
+
         this.LCDNumbers = new ArrayList() {
             {
                 add(new LCDNumber(" ", "|", "|"));
@@ -14,8 +17,11 @@ public class NumberConverter {
     }
 
     public String convert(int arabicNumber) {
-        LCDNumber LCDnumber = this.LCDNumbers.get(arabicNumber - 1);
 
-        return LCDnumber.toString();
+        for (String number : String.valueOf(arabicNumber).split("")) {
+            formatter.add(this.LCDNumbers.get(Integer.parseInt(number) - 1));
+        }
+
+        return formatter.format();
     }
 }
