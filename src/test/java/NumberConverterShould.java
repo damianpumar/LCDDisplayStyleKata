@@ -19,6 +19,6 @@ public class NumberConverterShould {
 
     @Test
     public void be_format_LCD_two() {
-        assertThat(numberConverter.convert(2)).isEqualTo(" _\n _|\n|_");
+        assertThat(numberConverter.convert(2)).isEqualTo("_\n_|\n|_");
     }
 }

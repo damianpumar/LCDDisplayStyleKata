@@ -1,8 +1,21 @@
-public class NumberConverter {
-    public String convert(int number) {
-        if (number == 1)
-            return " \n|\n|";
+import java.util.ArrayList;
+import java.util.List;
 
-        return " _\n _|\n|_";
+public class NumberConverter {
+    private final List<LCDNumber> LCDNumbers;
+
+    public NumberConverter() {
+        this.LCDNumbers = new ArrayList() {
+            {
+                add(new LCDNumber(" ", "|", "|"));
+                add(new LCDNumber("_", "_|", "|_"));
+            }
+        };
+    }
+
+    public String convert(int arabicNumber) {
+        LCDNumber LCDnumber = this.LCDNumbers.get(arabicNumber - 1);
+
+        return LCDnumber.toString();
     }
 }
