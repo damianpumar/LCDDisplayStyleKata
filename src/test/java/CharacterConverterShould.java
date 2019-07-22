@@ -14,21 +14,21 @@ public class CharacterConverterShould {
 
     @Test
     public void be_format_LCD_one() {
-        assertThat(characterConverter.convert(1)).isEqualTo(" \n|\n|");
+        assertThat(characterConverter.convert("1")).isEqualTo(" \n|\n|");
     }
 
     @Test
     public void be_format_LCD_two() {
-        assertThat(characterConverter.convert(2)).isEqualTo(" _\n _|\n|_");
+        assertThat(characterConverter.convert("2")).isEqualTo(" _\n _|\n|_");
     }
 
     @Test
     public void be_format_LCD_twelve() {
-        assertThat(characterConverter.convert(12)).isEqualTo("  _\n| _|\n||_");
+        assertThat(characterConverter.convert("12")).isEqualTo("  _\n| _|\n||_");
     }
 
     @Test
     public void be_format_LCD_A() {
-        assertThat(characterConverter.convert("A")).isEqualTo("  ^ \n /_\\\n/   \\");
+        assertThat(characterConverter.convert("A")).isEqualTo(" __ \n|__|\n|  |");
     }
 }

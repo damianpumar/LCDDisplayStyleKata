@@ -1,14 +1,14 @@
-public abstract class Character<T> {
-    private final T value;
+public class Character {
+    private final String value;
     private final String[] positions;
 
-    protected Character(T value, String top, String middle, String bottom) {
+    protected Character(String value, String top, String middle, String bottom) {
         this.value = value;
 
         this.positions = new String[]{top, middle, bottom};
     }
 
-    public T value() {
+    public String value() {
         return this.value;
     }
 
